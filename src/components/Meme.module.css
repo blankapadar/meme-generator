@@ -1,16 +1,26 @@
 .form {
   display: grid;
-  grid-template-columns: 40px 40px / 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
 .btn {
   background: linear-gradient(90deg, #672280 1.18%, #a626d3 100%);
   color: white;
   text-align: center;
-  padding: 10px;
-  width: 600px;
+  padding: 15px;
   border-radius: 5px;
   border: none;
   font-weight: bold;
   grid-column: 1 / -1;
+}
+
+.main {
+  padding: 40px;
+}
+
+.input {
+  padding: 6px;
+  border-radius: 5px;
+  border: 1px solid rgb(211, 210, 210);
 }

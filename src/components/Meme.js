@@ -4,8 +4,8 @@ import classes from "./Meme.module.css";
 
 const Meme = (props) => {
   return (
-    <main>
-      <form>
+    <main className={classes.main}>
+      <form className={classes.form}>
         <input className={classes.input} type="text"></input>
         <input className={classes.input} type="text"></input>
         <button className={classes.btn}>Get a new meme image 🖼</button>
