@@ -1,7 +1,17 @@
+.main {
+  padding: 40px;
+}
+
 .form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
+}
+
+.input {
+  padding: 6px;
+  border-radius: 5px;
+  border: 1px solid rgb(211, 210, 210);
 }
 
 .btn {
@@ -13,14 +23,17 @@
   border: none;
   font-weight: bold;
   grid-column: 1 / -1;
+  cursor: pointer;
 }
 
-.main {
-  padding: 40px;
+.btn:hover {
+  background: linear-gradient(90deg, #571d6d 1.18%, #751c96 100%);
+  transition: all 200ms ease-in-out;
 }
 
-.input {
-  padding: 6px;
-  border-radius: 5px;
-  border: 1px solid rgb(211, 210, 210);
+.meme {
+  max-width: 600px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
 }
