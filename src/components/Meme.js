@@ -5,13 +5,23 @@ import memesData from "../memesData";
 
 const Meme = (props) => {
   let url;
-  const [memeUrl, setMemeUrl] = useState("");
+
+  const [meme, setMeme] = useState({
+    topText: "",
+    bottomText: "",
+    randomImage: "http://i.imgflip.com/1bij.jpg",
+  });
+
+  const [allMemeImages, setAllMemeImages] = useState(memesData);
 
   const getRandomMeme = (meme) => {
-    const memesArray = memesData.data.memes;
+    const memesArray = allMemeImages.data.memes;
     const randomNumber = Math.floor(Math.random() * memesArray.length);
     url = memesArray[randomNumber].url;
-    setMemeUrl(url);
+    setMeme((prevMeme) => ({
+      ...prevMeme,
+      randomImage: url,
+    }));
   };
 
   return (
@@ -24,7 +34,11 @@ const Meme = (props) => {
         </button>
       </div>
       <div>
-        <img className={classes.meme} src={memeUrl} alt="random-meme" />
+        <img
+          className={classes.meme}
+          src={meme.randomImage}
+          alt="random-meme"
+        />
       </div>
     </main>
   );
