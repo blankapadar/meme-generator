@@ -33,12 +33,14 @@ const Meme = (props) => {
           Get a new meme image 🖼
         </button>
       </div>
-      <div>
+      <div className={classes.memes}>
         <img
           className={classes.meme}
           src={meme.randomImage}
           alt="random-meme"
         />
+        <h2 className={classes.top}>Top text</h2>
+        <h2 className={classes.bottom}>Bottom text</h2>
       </div>
     </main>
   );
