@@ -4,8 +4,6 @@ import classes from "./Meme.module.css";
 import memesData from "../memesData";
 
 const Meme = (props) => {
-  let url;
-
   const [meme, setMeme] = useState({
     topText: "",
     bottomText: "",
@@ -17,18 +15,41 @@ const Meme = (props) => {
   const getRandomMeme = (meme) => {
     const memesArray = allMemeImages.data.memes;
     const randomNumber = Math.floor(Math.random() * memesArray.length);
-    url = memesArray[randomNumber].url;
+    const url = memesArray[randomNumber].url;
     setMeme((prevMeme) => ({
       ...prevMeme,
       randomImage: url,
     }));
   };
 
+  const changeHandler = (event) => {
+    setMeme((prevMeme) => {
+      return {
+        ...prevMeme,
+        [event.target.name]: event.target.value,
+      };
+    });
+  };
+
   return (
     <main className={classes.main}>
       <div className={classes.form}>
-        <input className={classes.input} type="text"></input>
-        <input className={classes.input} type="text"></input>
+        <input
+          className={classes.input}
+          type="text"
+          placeholder="Top text"
+          name="topText"
+          value={meme.topText}
+          onChange={changeHandler}
+        ></input>
+        <input
+          className={classes.input}
+          type="text"
+          placeholder="Bottom text"
+          name="bottomText"
+          value={meme.bottomText}
+          onChange={changeHandler}
+        ></input>
         <button onClick={getRandomMeme} className={classes.btn}>
           Get a new meme image 🖼
         </button>
@@ -39,8 +60,8 @@ const Meme = (props) => {
           src={meme.randomImage}
           alt="random-meme"
         />
-        <h2 className={classes.top}>Top text</h2>
-        <h2 className={classes.bottom}>Bottom text</h2>
+        <h2 className={classes.top}>{meme.topText}</h2>
+        <h2 className={classes.bottom}>{meme.bottomText}</h2>
       </div>
     </main>
   );
